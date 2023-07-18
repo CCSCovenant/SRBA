@@ -1,5 +1,8 @@
 
 class Character:
+    #ATK 攻击力
+    #DEF 防御力
+    #SPEED 速度
 
     def __int__(self,rule_list):
         pass
