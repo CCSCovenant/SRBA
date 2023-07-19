@@ -48,6 +48,7 @@ class CombatObj:
         # SPEC_DMG_INC_SELF
         # SPEC_DMG_INC_OPPONENT
         """
+        #当前数值
         self.ATK = ATK
         self.HP = HP
         self.DEF = DEF
@@ -58,14 +59,25 @@ class CombatObj:
         self.CRIT_DMG = CRIT_DMG
         self.LEVEL = LEVEL
 
+        # 基础数值
+        self.BASE_ATK = ATK
+        self.BASE_HP = HP
+        self.BASE_DEF = DEF
+        self.BASE_SPEED = SPEED
+        self.BASE_DEBUFF_RES = DEBUFF_RES
+        self.BASE_TYPE_DMG_RES = TYPE_DMG_RES
+        self.BASE_CRIT_RATE = CRIT_RATE
+        self.BASE_CRIT_DMG = CRIT_DMG
+        self.BASE_LEVEL = LEVEL
+
         # 属性修正(加算)
 
         self.ATK_ADJ = 0            # ATK_ADJ 攻击力修正
         self.HP_ADJ = 0             # HP_ADJ 生命值修正
         self.DEF_ADJ = 0            # DEF_ADJ 防御力修正
         self.SPEED_ADJ = 0          # SPEED_ADJ 速度修正
-        self.TYPE_DMG_RES = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-        # TYPE_DMG_RES_ADJ 属性伤害抗性
+        self.TYPE_DMG_RES_ADJ = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        self.TYPE_DMG_PEN = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         self.DEBUFF_RES_ADJ = 0     # DEBUFF_RES_ADJ 效果抵抗修正
         self.CRIT_RATE_ADJ = 0.0    # CRIT_RATE_ADJ 暴击率修饰
         self.CRIT_DMG_ADJ = 0.0     # CRIT_DMG_ADJ 暴击伤害修饰
