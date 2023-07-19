@@ -1,4 +1,6 @@
-def normal_damage(combat_obj_1, combat_obj_2):
+import random
+
+def damage(base_damage,combat_obj_1, combat_obj_2):
     """
     伤害 =
     基础伤害区*
@@ -11,14 +13,26 @@ def normal_damage(combat_obj_1, combat_obj_2):
     抗性系数*
     特殊增伤系数*
     特殊易伤系数
-
-    :param combat_obj_1: 战斗对象1
-    :param combat_obj_2: 战斗对象2
+    :param base_damage: 基础伤害
+    :param combat_obj_1: 攻击对象
+    :param combat_obj_2: 受击对象
     :return:
     """
-    non_crit_damage = combat_obj_1.base_damage() * combat_obj_1.damage_mul_self() * combat_obj_2.damage_mul_opponent() * combat_obj_2.resistance_mul() * combat_obj_1.def_mul(
-        combat_obj_2) * combat_obj_2.tenacity_mul() * combat_obj_1.sim_uni_mul(combat_obj_2)
-    return non_crit_damage
+
+    #增伤系数
+    DMG_INC_OPPONENT = 1+combat_obj_1.DMG_INC_OPPONENT
+    #易伤系数
+    DMG_INC_SELF = 1+combat_obj_2.DMG_INC_SELF
+    #减伤系数
+    DMG_DEC = 1+combat_obj_2.DMG_REDUCE_OPPONENT
+    #虚弱系数
+    DMG_REDUCE = combat_obj_1.DMG_REDUCE_SELF
+    #暴击系数
+    CRIT = 1
+    if random.random() >= combat_obj_1.CRIT_RATE:
+        CRIT += combat_obj_1.CRIT_DMG
+    
+    return
 
     pass
 
