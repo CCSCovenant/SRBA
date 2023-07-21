@@ -11,7 +11,8 @@ class CombatObj:
                  TYPE_DMG_RES,
                  CRIT_RATE,
                  CRIT_DMG,
-                 LEVEL):
+                 LEVEL,
+                 EVENT_LIST):
         """
         :param ATK: 攻击力 int
         :param HP: 生命值 int
