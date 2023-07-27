@@ -102,7 +102,14 @@ class CombatObj:
         # SPEC_DMG_INC_SELF
         # SPEC_DMG_INC_OPPONENT
         self.Timer = Timer(self.SPEED,self)
+        self.state_adjust_list = []
     def round_end_process(self):
         pass
 
+    def add_adjust(self,state_adjust):
+        self.state_adjust_list.append(state_adjust)
+        state_adjust.on_add(self)
 
+    def remove_adjust(self,state_adjust):
+        state_adjust.on_remove()
+        self.state_adjust_list.remove(state_adjust)
