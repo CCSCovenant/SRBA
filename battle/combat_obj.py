@@ -15,6 +15,7 @@ class CombatObj:
                  CRIT_RATE,
                  CRIT_DMG,
                  LEVEL,
+                 TOUGHNESS_ADJ,
                  EVENT_LIST):
         """
         :param ATK: 攻击力 int
@@ -26,6 +27,8 @@ class CombatObj:
         :param CRIT_RATE: 暴击率 float 0-1
         :param CRIT_DMG: 暴击伤害 float
         :param LEVEL: 等级 int
+        :param TOUGHNESS_ADJ 击破特攻 double
+        :param EVENT_LIST 角色有的所有事件
 
         # 属性修正(加算)
         # ATK_ADJ 攻击力修正
@@ -62,6 +65,7 @@ class CombatObj:
         self.CRIT_RATE = CRIT_RATE
         self.CRIT_DMG = CRIT_DMG
         self.LEVEL = LEVEL
+        self.TOUGHNESS_ADJ = TOUGHNESS_ADJ
 
         # 基础数值
         self.BASE_ATK = ATK
