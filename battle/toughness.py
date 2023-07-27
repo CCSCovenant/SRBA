@@ -6,10 +6,9 @@ class Toughness:
     def __init__(self):
         self.current_length = None
 
-    def __int__(self, length, Enemy):
+    def __int__(self, length):
         self.length = length
         self.current_length = length
-        self.Enemy = Enemy
 
     def recover(self):
         self.current_length = self.length
