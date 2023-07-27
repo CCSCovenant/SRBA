@@ -7,13 +7,14 @@ class Timer:
     next_move_time = 0
     speed = 0
 
-    def __int__(self, speed):
+    def __int__(self, speed,combatObj):
         """
           初始化第一次入场的速度.
           入场加减速/推拉条由rules负责
           行动值 = 剩余路程/速度
           例如 125速对象下次行动时间为10000/125 = 80
         """
+        self.combatObj = combatObj
         self.next_round_distance = 10000
         self.speed = speed
         self.next_move_time = self.next_round_distance / self.speed
@@ -38,6 +39,7 @@ class Timer:
         -计算下次移动时间戳
         """
         self.next_move_time = self.next_round_distance / self.speed
+        self.combatObj.round_end_process()
 
     def change_speed(self, new_speed):
         """
@@ -61,6 +63,10 @@ class Timer:
         next_move_adj = (total_move_time * value) / 100 # 计算行动值变化
         self.next_move_time  = self.next_move_time + next_move_adj # 更新下次行动时间
         self.next_move_time  = min(0,self.next_move_time ) # 拉条以后剩余行动值必须大于等于0
+
+    def __lt__(self, other):
+        """重载小于运算符"""
+        return self.next_move_time < other.next_move_time
 
 
 

@@ -1,3 +1,6 @@
+from battle.timer import Timer
+
+
 class CombatObj:
     """
     CombatObj 用于储存角色和敌人的状态属性 包括各种基础数值和修正
@@ -98,6 +101,8 @@ class CombatObj:
         # 特殊伤害乘区(暂不使用)
         # SPEC_DMG_INC_SELF
         # SPEC_DMG_INC_OPPONENT
-
+        self.Timer = Timer(self.SPEED,self)
+    def round_end_process(self):
+        pass
 
 
