@@ -4,8 +4,21 @@ class GameManager:
         self.Spec_Event_List = Spec_Event_List
         self.Character_List = Character_List
         self.Enemy_List = Enemy_List
+        self.GAME_END = False
+
 
         pass
+    def main_loop(self):
+        while(not self.GAME_END):
+            '''
+            角色行动() <-
+            
+            AI决策() 
+                
+                
+            
+            '''
+            pass
 
     def next_event(self):
         for spec_event in self.Spec_Event_List:

@@ -4,7 +4,6 @@ class Timer:
     时间戳最小的对象开始行动 并将当前时间戳更新为此时间戳
     """
     next_round_distance = 10000
-    last_start_time = 0
     next_move_time = 0
     speed = 0
 
@@ -26,13 +25,11 @@ class Timer:
         """
         return self.next_move_time
 
-    def get_WT(self):
+    def get_move_time(self):
         """
         获取行动值
-        时间戳的数据比行动值多 此函数用于后期可视化用
         """
-        # TODO
-        pass
+        return self.next_move_time
 
     def move(self):
         """
@@ -40,37 +37,30 @@ class Timer:
         -当前路程重置
         -计算下次移动时间戳
         """
-        self.last_start_time = self.next_move_time
-        self.next_move_time = self.last_start_time + self.next_round_distance / self.speed
+        self.next_move_time = self.next_round_distance / self.speed
 
-    def change_speed(self, new_speed, time):
+    def change_speed(self, new_speed):
         """
         更新速度
         new_speed: 新的速度
-        time: 当前时间戳
         """
-        current_move_time = self.next_move_time - time  # 计算当前行动值
-        next_move_adj = current_move_time*(self.speed/new_speed) # 计算行动值变化
-        self.next_move_time = next_move_adj+time # 更新下次行动时间
+        self.next_move_time = self.next_move_time*(self.speed/new_speed) # 更新下次行动时间
         self.speed = new_speed # 更新速度
         pass
 
 
 
-    def change_distance(self, value, time):
+    def change_distance(self, value):
         """
         推/拉条动作 提高剩余路程
         value: 推拉条比例. 是一个整数 推条为正 拉条为负.
         e.g 推条16%：value = 16
         e.g 拉条25%：value = -25
-        time: 当前时间戳
         """
-        current_move_time = self.next_move_time - time  # 计算当前行动值
-        total_move_time = self.next_round_distance/self.speed
+        total_move_time = self.next_round_distance/self.speed #计算行动条总长
         next_move_adj = (total_move_time * value) / 100 # 计算行动值变化
-        current_move_time = current_move_time + next_move_adj
-        current_move_time = min(0,current_move_time) # 拉条以后剩余行动值必须大于等于0
-        self.next_move_time = current_move_time + time  # 更新下次行动时间
-        pass
+        self.next_move_time  = self.next_move_time + next_move_adj # 更新下次行动时间
+        self.next_move_time  = min(0,self.next_move_time ) # 拉条以后剩余行动值必须大于等于0
+
 
 
