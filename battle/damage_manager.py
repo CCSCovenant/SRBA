@@ -1,6 +1,6 @@
 import random
 
-def damage(base_damage,damage_type,combat_obj_1, combat_obj_2):
+def damage(base_damage,damage_type,combat_obj_1, combat_obj_2,damage_method):
     """
     伤害 =
     基础伤害区*
@@ -14,9 +14,10 @@ def damage(base_damage,damage_type,combat_obj_1, combat_obj_2):
     特殊增伤系数*
     特殊易伤系数
     :param base_damage: 基础伤害 int
-    :param damage_type: 伤害类型 int 0-7
+    :param damage_type: 伤害属性 int 0-7
     :param combat_obj_1: 攻击对象
     :param combat_obj_2: 受击对象
+    :param damage_method: 伤害类型 int 0-2: 0:常规伤害 1:击破伤害 2:普通持续伤害
     :return: FINAL_DAMAGE: 最后伤害
     :return: is_CRIT: 是否暴击
     """
@@ -44,6 +45,7 @@ def damage(base_damage,damage_type,combat_obj_1, combat_obj_2):
 
     FINAL_DAMAGE = base_damage*DMG_INC_OPPONENT*DMG_INC_SELF*DMG_DEC*DEF_REDUCE*CRIT*DEF_REDUCE*RES_REDUCE
     return FINAL_DAMAGE,is_CRIT
+
 
 
 
