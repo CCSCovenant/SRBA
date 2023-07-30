@@ -10,6 +10,7 @@ class CombatObj:
                  HP,
                  DEF,
                  SPEED,
+                 HATE,
                  DEBUFF_RES,
                  TYPE_DMG_RES,
                  CRIT_RATE,
@@ -22,10 +23,11 @@ class CombatObj:
         :param HP: 生命值 int
         :param DEF: 防御力 int
         :param SPEED: 速度 int
+        :param HATE: 仇恨值
         :param DEBUFF_RES: 效果抵抗 float 0-1
         :param TYPE_DMG_RES: 属性抗性 float array 0-1
-        :param CRIT_RATE: 暴击率 float 0-1
-        :param CRIT_DMG: 暴击伤害 float
+        :param CRIT_RATE: 暴击率 float e.g 5% = 5.0
+        :param CRIT_DMG: 暴击伤害 float e.g 50% = 50.0
         :param LEVEL: 等级 int
         :param TOUGHNESS_ADJ 击破特攻 double
         :param EVENT_LIST 角色有的所有事件
@@ -60,6 +62,7 @@ class CombatObj:
         self.HP = HP
         self.DEF = DEF
         self.SPEED = SPEED
+        self.HATE = HATE
         self.DEBUFF_RES = DEBUFF_RES
         self.TYPE_DMG_RES = TYPE_DMG_RES
         self.CRIT_RATE = CRIT_RATE
