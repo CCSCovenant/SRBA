@@ -8,6 +8,8 @@ class LightCone:
         level_up_data = dm.level_up_data
         if light_cone_name not in light_cone_data:
             raise RuntimeError('此光锥不存在 light cone does not existed')
-        self.HP = light_cone_data[light_cone_name]['基础生命值'] * level_up_data[level]
-        self.ATK = light_cone_data[light_cone_name]['基础攻击力'] * level_up_data[level]
-        self.DEF = light_cone_data[light_cone_name]['基础防御力'] * level_up_data[level]
+
+        self.HP = light_cone_data[light_cone_name]['基础生命值'] * level_up_data[level]['光锥系数']
+        self.ATK = light_cone_data[light_cone_name]['基础攻击力'] * level_up_data[level]['光锥系数']
+        self.DEF = light_cone_data[light_cone_name]['基础防御力'] * level_up_data[level]['光锥系数']
+

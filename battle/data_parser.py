@@ -52,9 +52,10 @@ def parser_general_data(path):
 
     df = pd.read_excel(xls, '角色技能倍率表')
     skill_damage_mul = {}
+    '''
     for index, row in df.iterrows():
         skill_damage_mul[row[0]] = row
-
+    '''
     # 角色行迹
 
     df = pd.read_excel(xls, '角色行迹')
