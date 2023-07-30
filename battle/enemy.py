@@ -4,7 +4,7 @@ from battle.toughness import Toughness
 
 class Enemy(CombatObj):
 
-    def __int__(self,
+    def __init__(self,
                 event_list,
                 toughness_length):
         self.toughness = Toughness(toughness_length)

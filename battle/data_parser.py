@@ -12,8 +12,8 @@ def paser_enemy_data():
 
     pass
 
-def parser_general_data():
-    path = 'battle_data/general_data/general_data_by_666bj_2.xlsx'
+def parser_general_data(path):
+
     xls = pd.ExcelFile(path)
 
     # 角色基础属性
@@ -65,4 +65,3 @@ def parser_general_data():
     return character_data,light_cone_data,level_up_data,skill_stance_and_energy_recover,skill_damage_distributed,skill_damage_mul,character_path
 
 
-parser_general_data()

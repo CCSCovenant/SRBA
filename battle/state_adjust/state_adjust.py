@@ -1,6 +1,6 @@
 
 class StateAdjust:
-    def __int__(self,type,is_removeable,counter,CombatObj):
+    def __init__(self,type,is_removeable,counter,CombatObj):
         self.type = type
         self.is_removeable = is_removeable
         self.counter = counter

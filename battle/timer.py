@@ -7,7 +7,7 @@ class Timer:
     next_move_time = 0
     speed = 0
 
-    def __int__(self, speed,combatObj):
+    def __init__(self, speed,combatObj):
         """
           初始化第一次入场的速度.
           入场加减速/推拉条由rules负责

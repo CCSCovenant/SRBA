@@ -3,10 +3,7 @@ class Toughness:
     韧性条系统
     """
 
-    def __init__(self):
-        self.current_length = None
-
-    def __int__(self, length):
+    def __init__(self, length):
         self.length = length
         self.current_length = length
 

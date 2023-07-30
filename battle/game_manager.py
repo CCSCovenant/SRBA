@@ -1,6 +1,6 @@
 class GameManager:
 
-    def __int__(self, Character_List, Enemy_List, Spec_Event_List,decision_AI):
+    def __init__(self, Character_List, Enemy_List, Spec_Event_List,decision_AI):
         self.Spec_Event_List = Spec_Event_List
         self.Character_List = Character_List
         self.Enemy_List = Enemy_List
