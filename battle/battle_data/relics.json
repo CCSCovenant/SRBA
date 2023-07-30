@@ -1,0 +1,63 @@
+{
+  "main_attribute": [
+    {"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]},
+    {"att_id": 1,"att_name": "生命值","att_base": [
+      45.1584,67.7376,90.3168,112.896
+    ],"att_add": [14.80544,23.70816,31.61088,39.5136]},
+    {"att_id": 2,"att_name": "攻击力","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]},
+    {"att_id": 3,"att_name": "生命值%","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 4,"att_name": "攻击力%","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 5,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 6,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 7,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+    ,{"att_id": 0,"att_name": "速度","att_base": [
+      1.6128,2.4192,3.2256,4.032
+    ],"att_add": [1,1,1.1,1.4]}
+  ],
+  "part_attribute": [
+    {"part_id": 0,"part_name": "头部","attribute_list":[1]},
+    {"part_id": 1,"part_name": "手部","attribute_list":[2]},
+    {"part_id": 2,"part_name": "躯干","attribute_list":[3,4,6]},
+    {"part_id": 3,"part_name": "脚部","attribute_list":[1]},
+    {"part_id": 4,"part_name": "位面球","attribute_list":[1]},
+    {"part_id": 5,"part_name": "连结绳","attribute_list":[1]}],
+  "sub_attribute": []
+}
