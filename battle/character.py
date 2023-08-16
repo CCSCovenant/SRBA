@@ -23,10 +23,10 @@ class Character(CombatObj):
 
         BASE_CRIT_RATE = 5.0
         BASE_CRIT_DMG = 50.0
-        super().__init__(ATK=BASE_ATK,
+        super().__init__(Attack=BASE_ATK,
                          HP=BASE_HP,
-                         DEF=BASE_DEF,
-                         SPEED=BASE_SPEED,
+                         Defence=BASE_DEF,
+                         Speed=BASE_SPEED,
                          HATE=BASE_HATE,
                          DEBUFF_RES=0,
                          TYPE_DMG_RES=[0.0,0.0,0.0,0.0,0.0,0.0,0.0],
