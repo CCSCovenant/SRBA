@@ -1,6 +1,8 @@
+import json
+
 import pandas as pd
 
-def paser_enemy_data():
+def parse_enemy_data():
     path = 'battle_data/enemy_data/enemy_base_data_by_666bj_2.xlsx'
     xls = pd.ExcelFile(path)
     sheet_names = xls.sheet_names
@@ -12,7 +14,7 @@ def paser_enemy_data():
 
     pass
 
-def parser_general_data(path):
+def parse_general_data(path):
 
     xls = pd.ExcelFile(path)
 
@@ -64,5 +66,15 @@ def parser_general_data(path):
         character_path[row[0]] = row
 
     return character_data,light_cone_data,level_up_data,skill_stance_and_energy_recover,skill_damage_distributed,skill_damage_mul,character_path
+
+def parse_relic_main_data(path):
+    with open(path, 'r') as file:
+        data = json.load(file)
+    return data
+
+def parse_relic_sub_data(path):
+    with open(path, 'r') as file:
+        data = json.load(file)
+    return data
 
 

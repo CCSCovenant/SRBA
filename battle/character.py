@@ -41,6 +41,8 @@ class Character(CombatObj):
         pass
 
     def apply_relic(self,relics):
+        for relic in relics:
+            pass
         pass
 
 
