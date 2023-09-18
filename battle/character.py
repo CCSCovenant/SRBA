@@ -5,6 +5,15 @@ from battle.data_manager import DataManager
 class Character(CombatObj):
 
     def __init__(self, character_name, level, trace_set, relics, light_cone):
+        """
+
+        :param character_name:
+        :param level:
+        :param trace_set: 一个int数组 trace_set[0-3] 代表普攻 战技 终结技 天赋等级 取值范围为1-15。 trace_set[4-6]为天赋状态 取值为0-1 1代表激活该天赋
+        traceset[7-16]代表额外行迹 取值同样为0-1.
+        :param relics:
+        :param light_cone:
+        """
         dm = DataManager()
         character_data = dm.character_data
         level_up_data = dm.level_up_data
@@ -44,5 +53,60 @@ class Character(CombatObj):
         for relic in relics:
             pass
         pass
+
+    def normal_attack(self, target):
+        """
+        :param target: combat_obj对象
+        """
+        pass
+    def skill_attack(self,target):
+        """
+        :param target: combat_obj对象
+        """
+        pass
+
+    def ult_attack(self, target):
+        """
+        :param target: combat_obj对象
+        """
+        pass
+
+
+    def follow_up_attack(self, target):
+        """
+        :param target: combat_obj对象
+        """
+        pass
+
+    def on_game_start(self):
+        pass
+
+    def on_round_start(self):
+        pass
+
+    def on_round_end(self):
+        pass
+
+    def on_cycle_start(self):
+        pass
+
+    def on_cycle_end(self):
+        pass
+
+    def on_hp_change(self,source):
+        pass
+
+    def on_mp_change(self,source):
+        pass
+
+    def on_buff_change(self,source):
+        pass
+
+    def on_skill_point_change(self,source):
+        pass
+
+    def under_attack(self,source):
+        pass
+
 
 

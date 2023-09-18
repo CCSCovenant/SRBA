@@ -1,5 +1,11 @@
 import random
 
+def attack(base_damage,damage_type,damage_method,combat_obj_1,combat_obj_2,toughness_reduce,damage_dist):
+    for radio in damage_dist:
+        damage(base_damage*radio,damage_type,combat_obj_1,combat_obj_2,damage_method)
+    combat_obj_2.on_attack()
+
+
 def damage(base_damage,damage_type,combat_obj_1, combat_obj_2,damage_method):
     """
     伤害 =
@@ -45,6 +51,7 @@ def damage(base_damage,damage_type,combat_obj_1, combat_obj_2,damage_method):
 
     FINAL_DAMAGE = base_damage*DMG_INC_OPPONENT*DMG_INC_SELF*DMG_DEC*DEF_REDUCE*CRIT*DEF_REDUCE*RES_REDUCE
     return FINAL_DAMAGE,is_CRIT
+
 
 
 

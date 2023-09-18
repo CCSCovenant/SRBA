@@ -10,15 +10,15 @@ class CombatObj:
                  HP,
                  Defence,
                  Speed,
-                 HATE,
-                 DEBUFF_RES,
-                 TYPE_DMG_RES,
-                 CRIT_RATE,
-                 CRIT_DMG,
-                 LEVEL,
-                 TOUGHNESS_ADJ,
-                 STATES_PROB,
-                 EVENT_LIST):
+                 Hate,
+                 StatusResistance,
+                 TypeDamageRes,
+                 CriticalChance,
+                 CriticalDamage,
+                 Level,
+                 BreakDamage,
+                 StatusProbability,
+                 GameManager):
         """
         :param Attack: 攻击力 int
         :param HP: 生命值 int
@@ -32,7 +32,7 @@ class CombatObj:
         :param Level: 等级 int
         :param BreakDamage 击破特攻 double
         :param StatusProbability 效果命中 double
-        :param EVENT_LIST 角色有的所有事件
+        :param GameManager 游戏管理器
 
         # 属性修正(加算)
         # AttackAddedRatio 攻击力比例修正
@@ -64,32 +64,48 @@ class CombatObj:
         # SPEC_DMG_INC_OPPONENT
         """
         #当前数值
-        self.ATK = Attack
+        self.Attack = Attack
         self.HP = HP
-        self.DEF = Defence
-        self.SPEED = Speed
-        self.HATE = HATE
-        self.DEBUFF_RES = DEBUFF_RES
-        self.TYPE_DMG_RES = TYPE_DMG_RES
-        self.CRIT_RATE = CRIT_RATE
-        self.CRIT_DMG = CRIT_DMG
-        self.LEVEL = LEVEL
-        self.TOUGHNESS_ADJ = TOUGHNESS_ADJ
-        self.STATES_PROB = STATES_PROB
+        self.Defence = Defence
+        self.Speed = Speed
+        self.HATE = Hate
+        self.StatusResistance = StatusResistance
+        self.TypeDamageRes = TypeDamageRes
+        self.CriticalChance = CriticalChance
+        self.CriticalDamage = CriticalDamage
+        self.Level = Level
+        self.BreakDamage = BreakDamage
+        self.StatusProbability = StatusProbability
+        self.GameManager = GameManager
 
         # 基础数值
-        self.BASE_ATK = Attack
+        self.BASE_Attack = Attack
         self.BASE_HP = HP
-        self.BASE_DEF = Defence
-        self.BASE_SPEED = Speed
-        self.BASE_DEBUFF_RES = DEBUFF_RES
-        self.BASE_TYPE_DMG_RES = TYPE_DMG_RES
-        self.BASE_CRIT_RATE = CRIT_RATE
-        self.BASE_CRIT_DMG = CRIT_DMG
-        self.BASE_LEVEL = LEVEL
+        self.BASE_Defence = Defence
+        self.BASE_Speed = Speed
+        self.BASE_StatusResistance = StatusResistance
+        self.BASE_TypeDamageRes = TypeDamageRes
+        self.BASE_CriticalChance = CriticalChance
+        self.BASE_CriticalDamage = CriticalDamage
+        self.BASE_Level = Level
 
-        # 属性修正(加算)
+        # 属性修正(比例加算)
 
+        self.AttackAddedRatio = 0 #攻击力比例修正
+        # HPAddedRatio 生命值比例修正
+        # DefenceAddedRatio 防御力比例修正
+        # DamageAddedRadio 伤害加成
+        self.AttackDelta = 0 # 攻击力修正
+
+        # HPDelta 生命值修正
+
+        # DefenceDelta 防御力修正
+        # SpeedDelta 速度修正
+
+        # TYPE_DMG_RES_ADJ
+        # StatusResistanceBase 效果抵抗修正
+        # CriticalChanceBase 暴击率修饰
+        # CriticalDamageBase 暴击伤害修饰
         self.ATK_ADJ = 0            # ATK_ADJ 攻击力修正
         self.HP_ADJ = 0             # HP_ADJ 生命值修正
         self.DEF_ADJ = 0            # DEF_ADJ 防御力修正
@@ -117,8 +133,7 @@ class CombatObj:
         # SPEC_DMG_INC_OPPONENT
         self.Timer = Timer(self.SPEED,self)
         self.state_adjust_list = []
-    def round_end_process(self):
-        pass
+
 
     def add_adjust(self,state_adjust):
         self.state_adjust_list.append(state_adjust)
@@ -127,3 +142,4 @@ class CombatObj:
     def remove_adjust(self,state_adjust):
         state_adjust.on_remove()
         self.state_adjust_list.remove(state_adjust)
+
