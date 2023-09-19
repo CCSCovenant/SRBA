@@ -1,8 +1,8 @@
-from battle.combat_obj import CombatObj
+from battle.combatEntity import CombatEntity
 from battle.data_manager import DataManager
 
 
-class Character(CombatObj):
+class Character(CombatEntity):
 
     def __init__(self, character_name, level, trace_set, relics, light_cone):
         """

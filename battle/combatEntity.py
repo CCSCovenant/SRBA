@@ -1,7 +1,8 @@
+from battle.battle_event.event_core.event import EntityEvent, Event
 from battle.timer import Timer
 
 
-class CombatObj:
+class CombatEntity:
     """
     CombatObj 用于储存角色和敌人的状态属性 包括各种基础数值和修正
     """
@@ -65,7 +66,8 @@ class CombatObj:
         """
         #当前数值
         self.Attack = Attack
-        self.HP = HP
+        self.maxHP = HP
+        self.currentHP = HP
         self.Defence = Defence
         self.Speed = Speed
         self.HATE = Hate
@@ -76,6 +78,7 @@ class CombatObj:
         self.Level = Level
         self.BreakDamage = BreakDamage
         self.StatusProbability = StatusProbability
+        self.HealAddedRadio = 0
         self.GameManager = GameManager
 
         # 基础数值
@@ -110,8 +113,8 @@ class CombatObj:
         self.HP_ADJ = 0             # HP_ADJ 生命值修正
         self.DEF_ADJ = 0            # DEF_ADJ 防御力修正
         self.SPEED_ADJ = 0          # SPEED_ADJ 速度修正
-        self.TYPE_DMG_RES_ADJ = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-        self.TYPE_DMG_PEN = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        self.TYPE_DMG_RES_ADJ = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] # 抗性修正
+        self.TYPE_DMG_PEN = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] # 抗性穿透
         self.DEBUFF_RES_ADJ = 0     # DEBUFF_RES_ADJ 效果抵抗修正
         self.CRIT_RATE_ADJ = 0.0    # CRIT_RATE_ADJ 暴击率修饰
         self.CRIT_DMG_ADJ = 0.0     # CRIT_DMG_ADJ 暴击伤害修饰
@@ -133,6 +136,8 @@ class CombatObj:
         # SPEC_DMG_INC_OPPONENT
         self.Timer = Timer(self.SPEED,self)
         self.state_adjust_list = []
+        self.triggers = {}
+
 
 
     def add_adjust(self,state_adjust):
@@ -142,4 +147,17 @@ class CombatObj:
     def remove_adjust(self,state_adjust):
         state_adjust.on_remove()
         self.state_adjust_list.remove(state_adjust)
+
+    def init_triggers(self):
+        self.triggers.update(self.GameManager.triggers)
+
+        EventList = [EntityEvent.NORMAL_ATTACK,EntityEvent.SKILL_ATTACK,EntityEvent.ULT_ATTACK,EntityEvent.DAMAGE,EntityEvent.FOLLOW_UP_ATTACK,EntityEvent.UNDER_ATTACK,EntityEvent.HP_CHANGE,EntityEvent.MP_CHANGE,EntityEvent.BUFF_CHANGE]
+
+        for event in EventList:
+            self.triggers[event] = Event()
+
+    def heal(self,value):
+        self.currentHP = max(self.currentHP+value,self.maxHP)
+        self.triggers[EntityEvent.UNDER_HEAL].trigger(EntityEvent.UNDER_HEAL)
+
 

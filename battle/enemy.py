@@ -1,8 +1,8 @@
-from battle.combat_obj import CombatObj
+from battle.combatEntity import CombatEntity
 from battle.toughness import Toughness
 
 
-class Enemy(CombatObj):
+class Enemy(CombatEntity):
 
     def __init__(self,
                 event_list,

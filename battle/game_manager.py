@@ -9,7 +9,7 @@ class GameManager:
         self.GAME_END = False
         self.movement_list = []
         self.immediate_turn = []
-
+        self.triggers = {}
 
         for character in self.Character_List:
             self.movement_list.append(character.Timer)
