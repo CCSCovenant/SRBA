@@ -32,6 +32,10 @@ class StateAdjust:
     def on_trigger(self,**kwargs):
 
         pass
+
+    def remove_self(self):
+
+        pass
 class STATES(Enum):
     buff = 0
     debuff = 1

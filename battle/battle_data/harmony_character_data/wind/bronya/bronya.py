@@ -27,7 +27,7 @@ class Bronya(Character):
         attack(base_damage, DamageType.WIND, InteractMethod.NormalAttack, self, current_target, ToughnessReduce.Normal, [1])
         if hasTrace:
             self.CriticalChance = self.CriticalChance - 1.0
-        #TODO 先人一步实现
+        #TODO 先人一步实现 施加 BronyaAttackBoost buff
 
     def skill_attack(self,targetSet):
         """
@@ -35,22 +35,19 @@ class Bronya(Character):
         :param target: combat_obj 对象
         """
         current_target = targetSet.target
-        attack_value = self.Attack
-        radio = 1
-        # TODO 读取罗刹战技治疗倍率
-        base_heal = attack_value * radio
-        heal(base_heal,InteractMethod.SkillAttack,self,current_target)
+        damage_increase_value = 0.3
+        # TODO 读取布洛妮娅战技增伤倍率
+        # TODO 施加增伤buff
 
-        # TODO 判断trace_set是否点了行迹2（战技解控）
-        current_target.remove_current_debuff()
+        # 拉条100%
+        if current_target is not self:
+            current_target.Timer.change_distance(-100)
 
     def ult_attack(self,targetSet):
         targets = targetSet.targets
+        #TODO 检查自身是否还有大招加成 在覆盖之前先取消大招加成
 
-        attack_value = self.Attack
-        radio = 1
-        # TODO 读取罗刹终结技倍率
-        base_damage = attack_value * radio
+
         for target in targets:
-            attack(base_damage, DamageType.IMAGINARY, InteractMethod.NormalAttack, self, target, ToughnessReduce.ULT_ALL ,1)
-            target.remove_current_buff()
+            #TODO 施加爆伤和攻击力提升.
+            pass
