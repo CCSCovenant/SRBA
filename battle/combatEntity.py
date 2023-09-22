@@ -1,3 +1,5 @@
+from enum import Enum
+
 from battle.battle_event.event_core.event import EntityEvent, Event
 from battle.timer import Timer
 
@@ -159,5 +161,43 @@ class CombatEntity:
     def heal(self,value):
         self.currentHP = max(self.currentHP+value,self.maxHP)
         self.triggers[EntityEvent.UNDER_HEAL].trigger(EntityEvent.UNDER_HEAL)
+
+
+    def remove_current_debuff(self):
+        # 移除当前的debuff
+        pass
+
+    def remove_current_buff(self):
+        # 移除当前的buff
+        pass
+
+class DamageType(Enum):
+    FIRE = 0 # 火属性伤害
+    ICE = 1 # 冰属性伤害
+    IMAGINARY = 2 # 虚数属性伤害
+    LIGHTNING = 3 # 雷属性伤害
+    PHYSICAL = 4 # 物理属性伤害
+    QUANTUM = 5 # 量子属性伤害
+    WIND = 6 # 风属性伤害
+
+class InteractMethod(Enum):
+    NormalAttack = 0
+    SkillAttack = 1
+    UltAttack = 2
+    FollowUpAttack = 3
+
+class ToughnessReduce(Enum):
+    Normal = 30
+    SKILL_SINGLE = 60
+    SKILL_MULTI_MAIN = 60
+    SKILL_MULTI_SUB = 30
+    ULT_SINGLE = 90
+    ULT_ALL = 60
+    ULT_MULTI = 60
+
+
+
+
+
 
 
