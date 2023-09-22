@@ -35,8 +35,7 @@ class Bronya(Character):
         :param target: combat_obj 对象
         """
         current_target = targetSet.target
-        damage_increase_value = 0.3
-        # TODO 读取布洛妮娅战技增伤倍率
+
         # TODO 施加增伤buff
 
         # 拉条100%
