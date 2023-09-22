@@ -7,8 +7,11 @@ Welcome to SRBA's documentation!
 ================================
 
 .. toctree::
+   overview<overview.rst>
+   structure<structure.rst>
    :maxdepth: 2
    :caption: Contents:
+
 
 
 
