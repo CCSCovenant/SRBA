@@ -12,9 +12,9 @@
 - Cycle: Cycle是一个Agent可以执行决策的最小单位. Agent需要在每个Cycle的起始执行决策, 并在Cycle结束以后获得feedback. 每个Cycle属于一个CombatEntity. 每个CombatEntity会给定一个决策空间
 
 - CombatEntity: CombatEntity是最基本的战斗对象, 主要包括角色和敌人两类. 神君,回合计数器等特殊单位也由CombatEntity实现.ComBatEntity会储存这个实体当前的状态和基础状态.
-    -Enemy Enemy是CombatEntity的一个子类, Enemy的基础属性由敌人类型, 敌人等级共同决定
-    -Character Character是CombatEntity的一个子类,Character的基础属性由角色本身,角色等级,角色光锥共同决定
-        -LightCone. 光锥是一个会给Character提升基础属性的装备, 不同的光锥有不同的属性,由LightCone类进行解析. 由光锥的名字和等级决定属性
+    - Enemy Enemy是CombatEntity的一个子类, Enemy的基础属性由敌人类型, 敌人等级共同决定
+    - Character Character是CombatEntity的一个子类,Character的基础属性由角色本身,角色等级,角色光锥共同决定
+        - LightCone. 光锥是一个会给Character提升基础属性的装备, 不同的光锥有不同的属性,由LightCone类进行解析. 由光锥的名字和等级决定属性
 
 - StateAdjust: 游戏内的大多数特殊效果都由StatesAdjust实现. 包括以下部分
     - 遗器效果
