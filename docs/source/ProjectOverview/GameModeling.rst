@@ -7,8 +7,7 @@
 整个游戏由GameManager进行控制,游戏内的所有可互动对象将会由CombatEntity描述.
 
 
-- GameManager: GameManager由一个主循环驱动,在游戏开始后开始从一个最小堆里取出需要行动的Cycle. 每个Cycle在执行之前需要从决策空间里进行一次决策. 如果这个Cycle是由敌方行动,
-GameManager将使用EnemeyAgent和RLAgent进行共同决策(RLAgent会决定是否执行插入回合), 如果这个Cycle是己方行动,那么这个Cycle将会由RLAgent进行决策(普攻/战技和插入回合).GameManager同时进行战技点数的管理.
+- GameManager: GameManager由一个主循环驱动,在游戏开始后开始从一个最小堆里取出需要行动的Cycle. 每个Cycle在执行之前需要从决策空间里进行一次决策. 如果这个Cycle是由敌方行动,GameManager将使用EnemeyAgent和RLAgent进行共同决策(RLAgent会决定是否执行插入回合), 如果这个Cycle是己方行动,那么这个Cycle将会由RLAgent进行决策(普攻/战技和插入回合).GameManager同时进行战技点数的管理.
 
 - Cycle: Cycle是一个Agent可以执行决策的最小单位. Agent需要在每个Cycle的起始执行决策, 并在Cycle结束以后获得feedback. 每个Cycle属于一个CombatEntity. 每个CombatEntity会给定一个决策空间
 
