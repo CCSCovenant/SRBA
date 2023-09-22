@@ -11,7 +11,6 @@ class LuochaAbyssFlower(StateAdjust):
         self.time_remain = 0
         self.active = False
 
-
     def on_trigger(self,**kwargs):
         if "EventType" not in kwargs:
             raise ValueError("on_trigger requires 'EventType' arguments.")
@@ -24,7 +23,7 @@ class LuochaAbyssFlower(StateAdjust):
                 self.counter = self.counter + 1
                 if self.counter == 2:
                     self.active = True
-                    self.time_remain =self.CYCLE_TIME
+                    self.time_remain =LuochaAbyssFlower.CYCLE_TIME
                     self.deploy_cycle_of_life()
         else:
             if self.active:

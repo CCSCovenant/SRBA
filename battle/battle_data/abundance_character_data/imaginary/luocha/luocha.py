@@ -1,12 +1,16 @@
 from battle.character import Character
 from battle.combatEntity import DamageType, InteractMethod, ToughnessReduce
 from battle.damage_manager import attack, heal
+from battle.state_adjust.buff.luocha.luocha_AutoSkil_CoolDown import LuochaAutoSkillCoolDown
 
 
 class Luocha(Character):
 
     def __init__(self,level,trace_set,relics,light_cone):
         super().__init__("罗刹",level,trace_set,relics,light_cone)
+        self.apply_auto_skill_listener()
+        self.auto_skill_counter = LuochaAutoSkillCoolDown()
+
 
 
     def normal_attack(self, targetSet):
@@ -51,6 +55,13 @@ class Luocha(Character):
             attack(base_damage, DamageType.IMAGINARY, InteractMethod.NormalAttack, self, target, ToughnessReduce.ULT_ALL ,1)
             target.remove_current_buff()
 
+    def apply_auto_skill_listener(self):
+
+        pass
+
+
+    def get_auto_skill_counter(self):
+        return self.auto_skill_counter
 
 
 
