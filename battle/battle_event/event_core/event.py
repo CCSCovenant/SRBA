@@ -28,6 +28,8 @@ class EntityEvent(Enum):
     SKILL_HEAL = 9
     UTL_HEAL = 10
     UNDER_HEAL = 11
+    CYCLE_START = 12
+    CYCLE_END = 13
 class EnvEvent(Enum):
     GAME_START = 0
     ROUND_START = 1

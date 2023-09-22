@@ -1,9 +1,11 @@
+from enum import Enum
+
 
 class StateAdjust:
     def __init__(self,is_removeable,type,sourceEntity,targetEntity,triggerList):
         """
-        :param is_removeable: 是否可以被解除 0代表不可移除，1代表可以移除
-        :param type: 正面/负面效果 0代表正面 1 代表负面
+        :param is_removeable: 是否可以被解除
+        :param type: 正面/负面效果
         :param sourceEntity: 施加对象
         :param targetEntity: 生效的对象
         :param triggerList: 需要注册的触发器类型
@@ -27,7 +29,12 @@ class StateAdjust:
     def on_remove(self):
         pass
 
-    def on_trigger(self,EventType):
+    def on_trigger(self,**kwargs):
 
         pass
+class STATES(Enum):
+    buff = 0
+    debuff = 1
+    RemoveAble = 2
+    notRemoveAble = 3
 
