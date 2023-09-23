@@ -120,7 +120,7 @@ class InteractMethod(Enum):
     FollowUpAttack = 3
 
 class ToughnessReduce(Enum):
-    Normal = 30
+    NORMAL = 30
     SKILL_SINGLE = 60
     SKILL_MULTI_MAIN = 60
     SKILL_MULTI_SUB = 30
