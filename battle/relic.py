@@ -90,9 +90,9 @@ class Relic:
         return False, None
 
 class Parts(Enum):
-    HEAD = 1
-    HANDS = 2
-    BODY = 3
-    FEET = 4
-    SPHERE = 5
-    ROPE = 6
+    HEAD = "1"
+    HANDS = "2"
+    BODY = "3"
+    FEET = "4"
+    SPHERE = "5"
+    ROPE = "6"
