@@ -21,22 +21,10 @@ class Relic:
     __TypeMapping__ = {"Fire":0,"Ice":1,"Thunder":3,"Physical":0,"Wind":4,"Quantum":5,"Imaginary":6}
 
     def __init__(self,PART,STAR,LEVEL,MAIN_ATT,SUB_ATT,SUB_ATT_STEP,ID):
-        self.AttackAddedRatio = 0  #  攻击力比例修正
-        self.AttackDelta = 0 # 攻击力加算
-        self.HPAddedRatio = 0  # 生命值比例修正
-        self.HPDelta = 0  # 生命值加算
-        self.DefenceAddedRatio = 0  # 防御力比例修正
-        self.DefenceDelta = 0  # 防御力加算
-        self.SpeedDelta = 0  #速度加算
-        self.BreakDamageAddedRatioBase = 0 #击破特攻
-        self.SPRatioBase = 0 # 充能效率
-        self.TypeDamageAddedRadio = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # 属性伤害比例修正
-        self.StatusResistanceBase = 0  # 效果抵抗修正
-        self.CriticalChanceBase = 0.0  # 暴击率修正
-        self.CriticalDamageBase = 0.0  # 暴击伤害修正
-        self.HealRatioBase = 0.0 # 治疗提升
-        self.StatusProbabilityBase = 0.0 # 效果命中
-        self.ID = ID
+        #TODO 完成遗器修正值的填写TAT
+
+        self.radioMod = {}
+        self.deltaMod = {}
 
         dm = DataManager()
         relic_main_att = dm.relic_main_data

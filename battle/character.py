@@ -51,9 +51,11 @@ class Character(CombatEntity):
 
     def apply_relic(self,relics):
         for relic in relics:
-
-            pass
-        pass
+            for att,value in relic.radioMod:
+                self.mod_property_radio(att,value)
+            for att,value in relic.deltaMod:
+                self.mod_property_delta(att,value)
+        
 
     def normal_attack(self, target):
         """
