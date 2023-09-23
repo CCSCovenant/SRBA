@@ -1,4 +1,6 @@
 import random
+from enum import Enum
+
 
 def attack(base_damage, damage_type, InteractMethod, combatEntity_1, combatEntity_2, toughness_reduce, damage_dist):
     for radio in damage_dist:
@@ -55,7 +57,6 @@ def damage(base_damage, damage_type, combatEntity_1, combatEntity_2, InteractMet
 
     FINAL_DAMAGE = base_damage*DMG_INC_OPPONENT*DMG_INC_SELF*DMG_DEC*DEF_REDUCE*CRIT*DEF_REDUCE*RES_REDUCE
     return FINAL_DAMAGE,is_CRIT
-
 
 
 

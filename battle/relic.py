@@ -1,4 +1,5 @@
 import re
+from enum import Enum
 
 from battle.data_manager import DataManager
 
@@ -17,7 +18,8 @@ class Relic:
     ID: 遗器的套装ID. 用于判断遗器套装效果
 
     """
-    __TypeMapping__ = {"Physical":0,"Fire":1,"Ice":2,"Thunder":3,"Wind":4,"Quantum":5,"Imaginary":6}
+    __TypeMapping__ = {"Fire":0,"Ice":1,"Thunder":3,"Physical":0,"Wind":4,"Quantum":5,"Imaginary":6}
+
     def __init__(self,PART,STAR,LEVEL,MAIN_ATT,SUB_ATT,SUB_ATT_STEP,ID):
         self.AttackAddedRatio = 0  #  攻击力比例修正
         self.AttackDelta = 0 # 攻击力加算
@@ -86,3 +88,11 @@ class Relic:
             return True, match.group(1)
 
         return False, None
+
+class Parts(Enum):
+    HEAD = 1
+    HANDS = 2
+    BODY = 3
+    FEET = 4
+    SPHERE = 5
+    ROPE = 6

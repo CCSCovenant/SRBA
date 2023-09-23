@@ -172,13 +172,13 @@ class CombatEntity:
         pass
 
 class DamageType(Enum):
-    FIRE = 0 # 火属性伤害
-    ICE = 1 # 冰属性伤害
-    IMAGINARY = 2 # 虚数属性伤害
-    LIGHTNING = 3 # 雷属性伤害
-    PHYSICAL = 4 # 物理属性伤害
+    PHYSICAL = 0 # 物理属性伤害
+    FIRE = 1 # 火属性伤害
+    ICE = 2 # 冰属性伤害
+    THUNDER = 3 # 雷属性伤害
+    WIND = 4 # 风属性伤害
     QUANTUM = 5 # 量子属性伤害
-    WIND = 6 # 风属性伤害
+    IMAGINARY = 6 # 虚数属性伤害
 
 class InteractMethod(Enum):
     NormalAttack = 0

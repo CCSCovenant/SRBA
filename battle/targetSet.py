@@ -2,6 +2,10 @@ from enum import Enum
 
 
 class TargetSet:
+    """
+    TargetSet用于为角色的普攻/战技/终结技提供目标
+
+    """
     def __init__(self, type, **kwargs):
         self.type = type
 
