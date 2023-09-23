@@ -32,5 +32,6 @@
   "QuantumPen": 0,
   "ImaginaryPen": 0,
   "Weaken": 0,
-  "Vulnerability": 0
+  "Vulnerability": 0 ,
+  "DmgReduction": 0
 }
