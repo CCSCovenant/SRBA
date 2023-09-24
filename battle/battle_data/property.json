@@ -6,7 +6,7 @@
   "CriticalChance": 0.05,
   "CriticalDamage": 0.5,
   "BreakDamage": 0,
-  "Heal": 0,
+  "HealRadio": 0,
   "StatusResistance": 0,
   "StatusProbability": 0,
   "SPRadio": 0,

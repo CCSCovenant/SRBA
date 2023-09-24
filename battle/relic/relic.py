@@ -31,12 +31,14 @@ class Relic:
         main_relic_id = PART+STAR
         relic_main = relic_main_att[main_relic_id]
         BaseValue,LevelAdd = self.get_values_from_property(relic_main,MAIN_ATT)
-        bool,value = self.check_att(MAIN_ATT)
-        if bool:
-            self.TypeDamageAddedRadio[self.__TypeMapping__[value]] = BaseValue+LevelAdd*LEVEL
+
+
+        Att_Name,isDelta = self.process_string(MAIN_ATT)
+
+        if isDelta:
+            self.deltaMod[Att_Name] = BaseValue+LevelAdd*(LEVEL-1)
         else:
-            current_value = getattr(self, MAIN_ATT)
-            setattr(self, MAIN_ATT, current_value + BaseValue + LevelAdd * LEVEL)
+            self.radioMod[Att_Name] = BaseValue+LevelAdd*(LEVEL-1)
 
         relic_sub_att = dm.relic_sub_data
         relic_sub = relic_sub_att[STAR]
@@ -44,8 +46,13 @@ class Relic:
             BaseValue, StepValue = self.get_values_from_sub_property(relic_sub, key)
             Bases = SUB_ATT[key]
             Steps = SUB_ATT_STEP[key]
-            current_value = getattr(self, key)
-            setattr(self, key, current_value + Bases * BaseValue + Steps * StepValue)
+            Att_Name, isDelta = self.process_string(key)
+            if isDelta:
+                current = self.deltaMod[Att_Name]
+                self.deltaMod[Att_Name] = current + Bases*BaseValue + StepValue*Steps
+            else:
+                current = self.radioMod[Att_Name]
+                self.radioMod[Att_Name] = current + Bases*BaseValue + StepValue*Steps
         self.ID = ID
 
     def get_values_from_property(self,data, target_property):
@@ -69,14 +76,15 @@ class Relic:
         # 如果没有找到对应的 Property，返回 None
         raise RuntimeError('No such att for target relic: 对应的遗器没有指定的属性')
 
-    def check_att(self,att):
-        pattern = r'^(Physical|Fire|Ice|Thunder|Wind|Quantum|Imaginary)AddedRadio$'
-        match = re.match(pattern, att)
-
-        if match:
-            return True, match.group(1)
-
-        return False, None
+    def process_string(s: str) -> (str, bool):
+        # 检测字符串是否以'delta'结尾
+        if s.endswith('Delta'):
+            # 移除'delta'并返回
+            return s[:-5], False
+        else:
+            # 移除所有'AddedRatio'和'Base'实例
+            s = s.replace('AddedRatio', '').replace('Base', '')
+            return s, False
 
 class Parts(Enum):
     HEAD = "1"
