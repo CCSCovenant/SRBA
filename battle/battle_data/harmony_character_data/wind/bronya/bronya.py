@@ -1,6 +1,8 @@
 from battle.character import Character
 from battle.combatEntity import ToughnessReduce, InteractMethod, DamageType
 from battle.damage_manager import attack
+from battle.data_manager import DataManager
+from battle.state_adjust.buff.bronya.bronya_attack_boost import BronyaAttackBoost
 
 
 class Bronya(Character):
@@ -17,6 +19,7 @@ class Bronya(Character):
         current_target = targetSet.target
         attack_value = self.Attack
         radio = 1
+
         #TODO  读取布洛妮娅普攻倍率
         base_damage = attack_value*radio
         #TODO 检查布洛妮娅行迹1
@@ -27,8 +30,8 @@ class Bronya(Character):
         attack(base_damage, DamageType.WIND, InteractMethod.NormalAttack, self, current_target, ToughnessReduce.Normal, [1])
         if hasTrace:
             self.CriticalChance = self.CriticalChance - 1.0
-        #TODO 先人一步实现 施加 BronyaAttackBoost buff
 
+        self.add_adjust(BronyaAttackBoost(self,self))
     def skill_attack(self,targetSet):
         """
         布洛妮娅战技
