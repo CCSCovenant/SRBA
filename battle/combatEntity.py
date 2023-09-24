@@ -1,7 +1,7 @@
+import json
 from enum import Enum
 
 from battle.battle_event.event_core.event import EntityEvent, Event
-from battle.entity_property import EntityProperty
 from battle.timer import Timer
 
 
@@ -26,21 +26,18 @@ class CombatEntity:
         :param StatusProbability 效果命中 double
         :param GameManager 游戏管理器
         """
-        defaultProperty = {}
-        # TODO 从property.json中获得默认的属性名和默认值
-
+        with open("./battle_data/property.json",'r') as property_file:
+            defaultProperty = json.load(property_file)
         for attribute in defaultProperty:
             base_property = defaultProperty[attribute]
             if attribute in kwargs:
                 base_property = kwargs[attribute]
-
             setattr(self, "Base_" + attribute, base_property)
             setattr(self, "Current_" + attribute, base_property)
             setattr(self, "DeltaAdd_" + attribute, 0)
             setattr(self, "RadioAdd_" + attribute, 0)
 
         self.MAX_HP = self.Current_HP
-
         self.Timer = Timer(self.Current_Speed, self)
         self.state_adjust_list = []
         self.triggers = {}
