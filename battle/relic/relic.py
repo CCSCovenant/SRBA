@@ -18,7 +18,6 @@ class Relic:
     ID: 遗器的套装ID. 用于判断遗器套装效果
 
     """
-    __TypeMapping__ = {"Fire":0,"Ice":1,"Thunder":3,"Physical":0,"Wind":4,"Quantum":5,"Imaginary":6}
 
     def __init__(self,PART,STAR,LEVEL,MAIN_ATT,SUB_ATT,SUB_ATT_STEP,ID):
         #TODO 完成遗器修正值的填写TAT
