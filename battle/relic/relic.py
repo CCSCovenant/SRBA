@@ -1,5 +1,5 @@
 import re
-from enum import Enum
+from enum import Enum, auto
 
 from battle.data_manager import DataManager
 
@@ -46,6 +46,7 @@ class Relic:
             Steps = SUB_ATT_STEP[key]
             current_value = getattr(self, key)
             setattr(self, key, current_value + Bases * BaseValue + Steps * StepValue)
+        self.ID = ID
 
     def get_values_from_property(self,data, target_property):
         # 遍历 JSON 数据
@@ -84,3 +85,28 @@ class Parts(Enum):
     FEET = "4"
     SPHERE = "5"
     ROPE = "6"
+
+class RID(Enum):
+    云无留迹的过客 = auto
+    野穗相伴的快枪手 = auto
+    净庭教宗的圣骑士 = auto
+    密林卧雪的猎人 = auto
+    街头出身的拳王 = auto
+    戍卫风雪的铁卫 = auto
+    宝命长存的莳者 = auto
+    晨昏交界的翔鹰 = auto
+    流星追迹的怪盗 = auto
+    激奏雷电的乐队 = auto
+    熔岩锻铸的火匠 = auto
+    盗匪荒漠的废土客 = auto
+    繁星璀璨的天才 = auto
+    折断的龙骨 = auto
+    繁星竞技场 = auto
+    不老者的仙舟 = auto
+    停转的萨尔索图 = auto
+    太空封印站 = auto
+    星体差分机 = auto
+    泛银河商业公司 = auto
+    生命的翁瓦克 = auto
+    盗贼公国塔利亚 = auto
+    筑城者的贝洛伯格 = auto

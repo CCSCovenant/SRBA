@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, auto
 from typing import List, Callable
 
 class Event:
@@ -16,20 +16,25 @@ class Event:
             listener(*args, **kwargs)
 
 class EntityEvent(Enum):
-    NORMAL_ATTACK = 0
-    SKILL_ATTACK = 1
-    ULT_ATTACK = 2
-    DAMAGE = 3
-    FOLLOW_UP_ATTACK = 4
-    UNDER_ATTACK = 5
-    HP_CHANGE = 6
-    MP_CHANGE = 7
-    BUFF_CHANGE = 8
-    SKILL_HEAL = 9
-    UTL_HEAL = 10
-    UNDER_HEAL = 11
-    CYCLE_START = 12
-    CYCLE_END = 13
+    NORMAL_ATTACK = auto
+    SKILL_ATTACK = auto
+    ULT_ATTACK = auto
+    DAMAGE = auto
+    FOLLOW_UP_ATTACK = auto
+    UNDER_ATTACK = auto
+    HP_CHANGE = auto
+    MP_CHANGE = auto
+    SPEED_CHANGE = auto
+    STATUS_PROBABILITY_CHANGE = auto
+    CRITICAL_RATE_CHANGE = auto
+    CRITICAL_DAMAGE_CHANGE = auto
+    STATUS_RESISTANCE_CHANGE = auto
+    BUFF_CHANGE = auto
+    SKILL_HEAL = auto
+    UTL_HEAL = auto
+    UNDER_HEAL = auto
+    CYCLE_START = auto
+    CYCLE_END = auto
 class EnvEvent(Enum):
     GAME_START = 0
     ROUND_START = 1

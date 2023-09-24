@@ -55,7 +55,7 @@ class Character(CombatEntity):
                 self.mod_property_radio(att,value)
             for att,value in relic.deltaMod:
                 self.mod_property_delta(att,value)
-        
+
 
     def normal_attack(self, target):
         """
