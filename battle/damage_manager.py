@@ -1,6 +1,8 @@
 import random
 from enum import Enum
 
+from battle.enemy import Enemy
+
 
 def attack(base_damage, damage_type, InteractMethod, combatEntity_1, combatEntity_2, toughness_reduce, damage_dist):
     for radio in damage_dist:
@@ -11,7 +13,31 @@ def heal(base_heal,InteractMethod,combatEntity_1,combatEntity_2):
     #TODO combatEntity_1治疗combatEntity_2
     pass
 
+def toughness_damage(damage_type,combatEntity_1,combatEntity_2,toughness_reduce):
+    if isinstance(combatEntity_2,Enemy):
+        if combatEntity_2.current_toughness_length > 0:
+            #削韧
+            combatEntity_2.current_toughness_length = max(0,combatEntity_2.current_toughness_length-toughness_reduce)
+            if combatEntity_2.current_toughness_length == 0:
 
+                #执行击破伤害
+                #执行击破推条
+                combatEntity_2.Timer.change_distance(25)
+
+
+
+                #TODO 击破附加效果应用
+                pass
+        else:
+            #如果韧性条已经归零 直接跳过
+            pass
+    else:
+        raise TypeError("combatEntity_2 must be an Enemy")
+def break_damage(damage_type,combatEntity_1,combatEntity_2):
+    coefficient = [2.0, 2.0, 1.0, 1.0, 1.5, 0.5, 0.5]
+    basevalue = combatEntity_1.LEVEL
+    #查询击破基数
+    pass
 def damage(base_damage, damage_type, combatEntity_1, combatEntity_2, InteractMethod):
     """
     伤害 =

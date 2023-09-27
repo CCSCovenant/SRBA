@@ -110,6 +110,9 @@ class CombatEntity:
     def apply_change(self):
         pass
 
+    def on_attack(self):
+        pass
+
 
 class DamageType(Enum):
     PHYSICAL = 0  # 物理属性伤害
